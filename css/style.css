@@ -63,6 +63,12 @@ body {
   padding-left: 15px;
   padding-right: 15px;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
+  transition: 0.4s;
+}
+.navbar a:hover {
+    text-shadow: 1px 2px 5px #4E4E4E;
 }
 .navbar .btn {
   margin-left: 30px;
@@ -78,7 +84,7 @@ body {
 .navbar i {
   color: #4E4E4E;
   padding-top: 5px;
-  height: 35px;
+  height: 50px;
 }
 
 /* Home Content */
@@ -109,7 +115,7 @@ body {
   text-shadow: 1px 1px 2px #4E4E4E;
 }
 .home-content .btn {
-  transition: 0.5s;
+  transition: all 0.5s;
   margin: 50px 20px 20px 45px;
   padding-top: 4px;
   border: #848484 1px solid;
@@ -122,9 +128,9 @@ body {
   cursor: pointer;
 }
 .home-content .btn:hover {
-  transition: 0.5s;
-  background-image: linear-gradient(to bottom, #FF9559,#FF5C00);
-  color: white;
+    transition: opacity 1s ease-in-out;
+    color: white;
+    background-image: linear-gradient(to bottom, #FF9559,#FF5C00);
 }
 
 .box {

@@ -131,10 +131,13 @@ body {
 
 .button-group * {
     border: black 1px solid;
-    height: 30px;
+    height: 25px;
     width: 85px;
     font-size: 11px;
     cursor: pointer;
+    text-align: center;
+    padding-top: 8px;
+    text-decoration: none;
 }
 
 .button-group .anal {
@@ -144,6 +147,7 @@ body {
     font-family: 'Encode Sans Semi Expanded', sans-serif;
     font-weight: 300;
     font-style: normal;
+    
 }
 
 .button-group .pred {
