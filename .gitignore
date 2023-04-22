@@ -1,2 +1,4 @@
 *.DS_Store
 .gcloudignore
+
+node_modules/

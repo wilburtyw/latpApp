@@ -1,8 +1,11 @@
 {
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "csv-parse": "^5.3.8",
+    "csv-parser": "^3.0.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jslint": "^0.12.1",
     "mongoose": "^7.0.3"
   },
   "scripts": {
