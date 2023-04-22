@@ -1,4 +1,12 @@
+# For MacOS
 *.DS_Store
-.gcloudignore
 
+# GCP
+.gcloudignore
+app.yaml
+
+# Secret Keys
+.env
+
+# For node_modules
 node_modules/
