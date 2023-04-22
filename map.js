@@ -10,7 +10,7 @@ function initMap() {
     });
     // NOTE: This uses cross-domain XHR, and may not work on older browsers.
     var geojsonLayer = new google.maps.Data();
-    geojsonLayer.loadGeoJson('./geojson/zip_codes.json');
+    geojsonLayer.loadGeoJson('./geojson/zipcode.json');
 
     // Step 3: create geojson layer
     geojsonLayer.setStyle((feature) => {
