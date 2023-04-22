@@ -18,6 +18,14 @@ app.get('/dashboardpred', (req, res) => {
     res.sendFile(path.join(__dirname, "dashboardpred.html"))
 })
 
+app.get('/filtered-geojson', (req, res) => {
+    const options = req.query;
+    options.selectedZipcodes = options.selectedZipcodes.split(',');
+    options.selectedYears = options.selectedYears.split(',');
+    const filteredGeoJSON = filterGeoJSON(options);
+    res.json(filteredGeoJSON);
+});
+
 // app.post('/register', (req, res) => {
 //     function success(user) {
 //       // start new session with registered user
