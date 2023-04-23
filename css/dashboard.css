@@ -3,12 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hanuman:wght@400&display=swap');
 
+/* General styles */
 html {
     height: 100%;
     margin: 0;
     padding: 0;
 }
-
 body {
     display: flex;
     flex-direction: column;
@@ -114,7 +114,14 @@ body {
     justify-content: flex-start;
     align-items: center;
     overflow: auto;
+    align-content: space-between;
 }
+
+.options .input {
+    margin-top: 20px;
+}
+
+.options 
 
 .options h2 {
     color: #383838;
@@ -131,12 +138,12 @@ body {
 
 .button-group * {
     border: black 1px solid;
-    height: 25px;
+    height: 21px;
     width: 85px;
     font-size: 11px;
     cursor: pointer;
     text-align: center;
-    padding-top: 8px;
+    padding-top: 6.5px;
     text-decoration: none;
 }
 
@@ -357,4 +364,72 @@ label {
     flex-basis: 0;
     flex-grow: 4;
     height: 100%;
+}
+
+.info {
+    display: flex;
+    padding: 0.5rem;
+    width: 15rem;
+    height: 100%;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow: auto;
+    font-family: 'Encode Sans Semi Expanded', sans-serif;
+    cursor: default;
+}
+
+.info.pred {
+    background-color: #004a9c;
+    color: white;
+}
+
+.info h1 {
+    font-size: medium;
+}
+
+.info .label-description{
+    font-size: x-small;
+}
+
+.info table {
+    margin-top: 10px;
+    width: 14em;
+    font-size: smaller;
+    border-radius: 0.5em;
+    border-width: 1.5px;
+    border-style: solid;
+    border-collapse: collapse;
+    font-family: 'Encode Sans Semi Expanded', sans-serif;
+    font-weight: 300;
+}
+
+.info.pred table {
+    border-color: white;
+}
+
+#selected-zipcodes-table th, #selected-zipcodes-table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #a8c0e4;
+}
+
+#selected-zipcodes-table th {
+    background-color: #004a9c;
+    color: white;
+}
+
+#selected-zipcodes-table tr:nth-child(even) {
+    background-color: #a8c0e4;
+    color: rgb(0, 0, 0);
+}
+
+#selected-zipcodes-table tr:nth-child(odd) {
+    background-color: #d1e1f3;
+    color: rgb(0, 0, 0);
+}
+
+#selected-zipcodes-table tr:hover {
+    background-color: #89aee6;
 }

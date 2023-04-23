@@ -1,5 +1,7 @@
 const express = require('express')
 const path = require('path')
+const { encodeGeoJSONPrediction } = require('./geojson/encoder.js');
+
 // const auth = require('./auth.js');
 const app = express()
 const port = process.env.PORT || 8080;
@@ -10,12 +12,12 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'))
 })
 
-app.get('/dashboard', (req, res) => {
-  res.sendFile(path.join(__dirname, "dashboard.html"))
+app.get('/analytic', (req, res) => {
+  res.sendFile(path.join(__dirname, "analytic.html"))
 })
 
-app.get('/dashboardpred', (req, res) => {
-    res.sendFile(path.join(__dirname, "dashboardpred.html"))
+app.get('/prediction', (req, res) => {
+    res.sendFile(path.join(__dirname, "prediction.html"))
 })
 
 app.get('/filtered-geojson', (req, res) => {
@@ -24,6 +26,21 @@ app.get('/filtered-geojson', (req, res) => {
     options.selectedYears = options.selectedYears.split(',');
     const filteredGeoJSON = filterGeoJSON(options);
     res.json(filteredGeoJSON);
+});
+
+app.get('/api/encoded-pred', async (req, res) => {
+    const selectedZipcodes = req.query.zipcodes ? req.query.zipcodes.split(',') : [];
+    const options = {
+        selectedZipcodes: selectedZipcodes,
+    };
+    try {
+        const encodedData = await encodeGeoJSONPrediction(options);
+        res.json(encodedData);
+        console.log(encodedData.features[0])
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'An error occurred while encoding the data.' });
+    }
 });
 
 // app.post('/register', (req, res) => {
