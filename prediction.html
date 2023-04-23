@@ -7,7 +7,6 @@
         <!-- ICON -->
         <script src="https://kit.fontawesome.com/84295c7e37.js" crossorigin="anonymous"></script>
         <script type="module" src="/predictionMap.js"></script>
-        <script type="module" src="/dashboardFunc.js"></script>
     </head>
     <body>
         <div class="header">
@@ -35,7 +34,7 @@
                 <h2>Dashboard</h2>
                 <div class="button-group">
                     <a href="./analytic" class="button anal">ANALYTIC</a>
-                    <a href="./prediction" class="button pred">PREDICTION</a>
+                    <a href="./prediction" class="button pred disabled">PREDICTION</a>
                 </div>
                 <div class="input zipcode">
                     <h5>Zipcode</h5>
@@ -355,12 +354,11 @@
                         </select>
                     </div>
                 </div>
-                
                 <div class="input styling">
                     <h5>Styling Options</h5>
                     <p>Zooming</p>
                     <div class="slider">
-                        <input id="zoom-options" type="range" min="0" max="4" value="0" oninput="zoValue.innerText = 'Lvl'+this.value">
+                        <input id="zoom-option" type="range" min="0" max="4" value="0" oninput="zoValue.innerText = 'Lvl'+this.value">
                         <p id="zoValue">Lvl0</p>
                     </div>
                     <p>Color Palette</p>
@@ -373,7 +371,7 @@
                     </div>
                     <p>Opacity</p>
                     <div class="slider">
-                        <input type="range" min="0" max="100" value="80" step="10" oninput="opValue.innerText = this.value+'%'">
+                        <input id="opacity-option" type="range" min="0" max="100" value="80" step="10" oninput="opValue.innerText = this.value+'%'">
                         <p id="opValue">80%</p>
                     </div>
                 </div>

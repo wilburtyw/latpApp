@@ -148,13 +148,23 @@ body {
 }
 
 .button-group .anal {
-    background-color: #707070;
-    color: white;
+    background-color: transparent;
+    color: black;
     border-radius: 20px 0 0 20px;
     font-family: 'Encode Sans Semi Expanded', sans-serif;
     font-weight: 300;
     font-style: normal;
-    
+    transition: 0.5s;
+}
+
+.button-group .anal:active, .anal.disabled {
+    color: white;
+    background-color: #707070;
+}
+
+.button-group .anal:hover {
+    color: white;
+    background-color: #E0E0E0;
 }
 
 .button-group .pred {
@@ -167,14 +177,14 @@ body {
     transition: 0.5s;
 }
 
+.button-group  .pred:active, .pred.disabled {
+    color: white;
+    background-color: #00337C;
+}
+
 .button-group .pred:hover {
     color: white;
     background-color: #0060EA;
-}
-
-.button-group .pred:active {
-    color: white;
-    background-color: #00337C;
 }
 
 .options .input {

@@ -5,6 +5,7 @@ const mapConfig = {
     colorOption: 'blue',
     zoomOption: 0,
     opacityOption: 80,
+    yearOption: 2020,
 };
 
 const mapUtils = {
@@ -37,106 +38,27 @@ function initMap() {
     mapConfig.map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
         center: { lat: 34.0224, lng: -118.2851 },
-        styles: [
-            { elementType: "geometry", stylers: [{ color: "#242f3e" }] },
-            { elementType: "labels.text.stroke", stylers: [{ color: "#242f3e" }] },
-            { elementType: "labels.text.fill", stylers: [{ color: "#746855" }] },
-            {
-              featureType: "administrative.locality",
-              elementType: "labels.text.fill",
-              stylers: [{ color: "#d59563" }],
-            },
-            {
-              featureType: "poi",
-              elementType: "labels.text.fill",
-              stylers: [{ color: "#d59563" }],
-            },
-            {
-              featureType: "poi.park",
-              elementType: "geometry",
-              stylers: [{ color: "#263c3f" }],
-            },
-            {
-              featureType: "poi.park",
-              elementType: "labels.text.fill",
-              stylers: [{ color: "#6b9a76" }],
-            },
-            {
-              featureType: "road",
-              elementType: "geometry",
-              stylers: [{ color: "#38414e" }],
-            },
-            {
-              featureType: "road",
-              elementType: "geometry.stroke",
-              stylers: [{ color: "#212a37" }],
-            },
-            {
-              featureType: "road",
-              elementType: "labels.text.fill",
-              stylers: [{ color: "#9ca5b3" }],
-            },
-            {
-              featureType: "road.highway",
-              elementType: "geometry",
-              stylers: [{ color: "#746855" }],
-            },
-            {
-              featureType: "road.highway",
-              elementType: "geometry.stroke",
-              stylers: [{ color: "#1f2835" }],
-            },
-            {
-              featureType: "road.highway",
-              elementType: "labels.text.fill",
-              stylers: [{ color: "#f3d19c" }],
-            },
-            {
-              featureType: "transit",
-              elementType: "geometry",
-              stylers: [{ color: "#2f3948" }],
-            },
-            {
-              featureType: "transit.station",
-              elementType: "labels.text.fill",
-              stylers: [{ color: "#d59563" }],
-            },
-            {
-              featureType: "water",
-              elementType: "geometry",
-              stylers: [{ color: "#17263c" }],
-            },
-            {
-              featureType: "water",
-              elementType: "labels.text.fill",
-              stylers: [{ color: "#515c6d" }],
-            },
-            {
-              featureType: "water",
-              elementType: "labels.text.stroke",
-              stylers: [{ color: "#17263c" }],
-            },
-        ],
     });
 
     mapConfig.geojsonLayer = new google.maps.Data();
     mapConfig.geojsonLayer.setStyle((feature) => {
-        const riskLevel = feature.getProperty("risk_level");
+        const yearData = feature.getProperty(`year_${mapConfig.yearOption}`);
+        const riskLevel = yearData ? yearData.risk_level : null;
         const fillColor = mapUtils.getColorByRiskLevel(mapConfig.colorOption, riskLevel);
+        const isSelected = feature.getProperty("isSelected");
         const isHighlighted = feature.getProperty("isHighlighted")
-      return {
-        fillColor: fillColor,
-        fillOpacity: isHighlighted ? 0.8 : 0.6,
-        strokeColor: 'white',
-        strokeWeight: 1,
-      };
+        return {
+            fillColor: fillColor,
+            fillOpacity: isHighlighted ? 0.8 : (isSelected ? 0.6 : 0.4),
+            strokeColor: 'white',
+            strokeWeight: 1,
+        };
     });
-  
+
     mapConfig.geojsonLayer.setMap(mapConfig.map);
 
     function updateSelectedZipcodesInfo() {
         const selectedZipcodesInfo = document.getElementById("selected-zipcodes-info");
-    
         // Remove existing info elements
         while (selectedZipcodesInfo.firstChild) {
             selectedZipcodesInfo.removeChild(selectedZipcodesInfo.firstChild);
@@ -156,6 +78,10 @@ function initMap() {
         const headerRiskLevel = document.createElement("th");
         headerRiskLevel.textContent = "Risk Level";
         headerRow.appendChild(headerRiskLevel);
+
+        const headerFreq = document.createElement("th");
+        headerFreq.textContent = "Frequency";
+        headerRow.appendChild(headerFreq);
     
         table.appendChild(headerRow);
     
@@ -163,9 +89,11 @@ function initMap() {
         mapConfig.selectedZipcodes.sort().forEach((zipcode) => {
             const feature = mapUtils.getFeatureByZipcode(zipcode);
             if (feature) {
-                const riskLevel = feature.getProperty("risk_level");
+                const yearData = feature.getProperty(`year_${mapConfig.yearOption}`);
+                const riskLevel = yearData ? yearData.risk_level : null;
                 const riskLevelText = riskLevel === null ? "N/A" : riskLevel;
-    
+                const frequency = yearData ? yearData.accident_frequency : null;
+                const riskFreqText = frequency === null ? "N/A" : frequency;
                 const row = document.createElement("tr");
                 table.appendChild(row);
     
@@ -176,6 +104,10 @@ function initMap() {
                 const cellRiskLevel = document.createElement("td");
                 cellRiskLevel.textContent = riskLevelText;
                 row.appendChild(cellRiskLevel);
+
+                const cellFrequency = document.createElement("td");
+                cellFrequency.textContent = riskFreqText;
+                row.appendChild(cellFrequency);
             }
         });
     }
@@ -184,14 +116,15 @@ function initMap() {
         const zipcode = event.feature.getProperty("zipcode");
         const isHighlighted = event.feature.getProperty("isHighlighted");
         const selectElement = document.querySelector(`#multi-select option[value="${zipcode}"]`);
+        console.log(document.querySelector(`#multi-select`))
         if (isHighlighted) {
             event.feature.setProperty("isHighlighted", false);
-            mapConfig.selectedZipcodes = mapConfig.selectedZipcodes.filter(item => item !== zipcode);
+            mapConfig.selectedZipcodes.pop(event.feature.getProperty("zipcode"));
             console.log(mapConfig.selectedZipcodes);
             selectElement.selected = false;
         } else {
             event.feature.setProperty("isHighlighted", true);
-            mapConfig.selectedZipcodes.push(zipcode);
+            mapConfig.selectedZipcodes.push(event.feature.getProperty("zipcode"));
             console.log(mapConfig.selectedZipcodes);
             selectElement.selected = true;
         }
@@ -215,27 +148,26 @@ function initMap() {
     }    
 
     const selectElement = document.getElementById('multi-select');
-
     selectElement.addEventListener('mousedown', (event) => {
         event.preventDefault(); // Prevent the default behavior
         const optionElement = event.target;
         if (optionElement.tagName.toLowerCase() === 'option') {
-          const zipcode = optionElement.value;
-          const scrollTop = selectElement.scrollTop; // Save the current scroll position
+        const zipcode = optionElement.value;
+        const scrollTop = selectElement.scrollTop; // Save the current scroll position
     
-          if (optionElement.selected) {
+        if (optionElement.selected) {
             optionElement.selected = false;
-            mapConfig.selectedZipcodes = mapConfig.selectedZipcodes.filter(item => item !== zipcode);
+            mapConfig.selectedZipcodes.pop(zipcode)
             deselectZipcode(zipcode);
-          } else {
+        } else {
             optionElement.selected = true;
             mapConfig.selectedZipcodes.push(zipcode)
             selectZipcode(zipcode);
-          }
-          selectElement.scrollTop = scrollTop; // Restore the scroll position
+        }
+        selectElement.scrollTop = scrollTop; // Restore the scroll position
         }
         updateSelectedZipcodesInfo()
-      });
+    });
 
     mapConfig.geojsonLayer.addListener("mouseover", (event) => {
         mapConfig.geojsonLayer.revertStyle();
@@ -245,7 +177,7 @@ function initMap() {
         mapConfig.geojsonLayer.revertStyle();
     });
 
-    fetch('/api/encoded-pred')
+    fetch('/api/encoded-anal')
     .then((response) => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -259,16 +191,24 @@ function initMap() {
         console.error('There was a problem with the fetch operation:', error);
     });
 
+    // Add event listener to Apply Filter button
+    document.getElementById('apply').addEventListener('click', () => {
+        applyFilters();
+        updateSelectedZipcodesInfo();
+    });
+    
     function applyFilters() {
-        // Get values from HTML elements
         mapConfig.colorOption = document.getElementById('color-options').value;
         mapConfig.opacityOption = parseInt(document.getElementById('opacity-option').value) / 100;
         mapConfig.zoomOption = parseInt(document.getElementById('zoom-option').value);
         mapConfig.map.setZoom(mapConfig.zoomOption+10);
 
+        mapConfig.yearOption = parseInt(document.getElementById('year-option').value);
+
         // Update map styling
         mapConfig.geojsonLayer.setStyle((feature) => {
-            const riskLevel = feature.getProperty("risk_level");
+            const yearData = feature.getProperty(`year_${mapConfig.yearOption}`);
+            const riskLevel = yearData ? yearData.risk_level : null;
             const fillColor = mapUtils.getColorByRiskLevel(mapConfig.colorOption, riskLevel);
             const fillOpacity = feature.getProperty("isHighlighted") ? 1 * mapConfig.opacityOption : (feature.getProperty("isSelected") ? 0.75 * mapConfig.opacityOption : 0.4 * mapConfig.opacityOption);
             
@@ -279,13 +219,8 @@ function initMap() {
                 strokeWeight: 1,
             };
         });
-        }
+    }
 
-    // Add event listener to Apply Filter button
-    document.getElementById('apply').addEventListener('click', () => {
-        applyFilters();
-    });
-    
     function clearAllSelections() {
         mapConfig.geojsonLayer.forEach(function (feature) {
             feature.setProperty("isHighlighted", false);

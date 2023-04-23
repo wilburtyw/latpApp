@@ -1,6 +1,6 @@
 const express = require('express')
 const path = require('path')
-const { encodeGeoJSONPrediction } = require('./geojson/encoder.js');
+const { encodeGeoJSONPrediction, encodeGeoJSONAnalytic } = require('./geojson/encoder.js');
 
 // const auth = require('./auth.js');
 const app = express()
@@ -29,12 +29,29 @@ app.get('/filtered-geojson', (req, res) => {
 });
 
 app.get('/api/encoded-pred', async (req, res) => {
+    console.log("PRED")
     const selectedZipcodes = req.query.zipcodes ? req.query.zipcodes.split(',') : [];
     const options = {
         selectedZipcodes: selectedZipcodes,
     };
     try {
         const encodedData = await encodeGeoJSONPrediction(options);
+        res.json(encodedData);
+        console.log(encodedData.features[0])
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ message: 'An error occurred while encoding the data.' });
+    }
+});
+
+app.get('/api/encoded-anal', async (req, res) => {
+    console.log("ANAL")
+    const selectedZipcodes = req.query.zipcodes ? req.query.zipcodes.split(',') : [];
+    const options = {
+        selectedZipcodes: selectedZipcodes,
+    };
+    try {
+        const encodedData = await encodeGeoJSONAnalytic(options);
         res.json(encodedData);
         console.log(encodedData.features[0])
     } catch (error) {

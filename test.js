@@ -3,7 +3,7 @@ const { encodeGeoJSONAnalytic, encodeGeoJSONPrediction } = require('./geojson/en
 async function testFilterGeoJSON() {
     const options = {
       selectedZipcodes: ['90001', '90002'],
-      selectedYears: ['2019', '2018'],
+      selectedYears: '2019',
     };
   
     try {
@@ -22,7 +22,6 @@ async function testFilterGeoJSON() {
   async function testencodeGeoJSONPrediction() {
     const options = {
       selectedZipcodes: ['90001', '90002'],
-      selectedYears: ['2019', '2018'],
     };
   
     try {
@@ -40,4 +39,3 @@ async function testFilterGeoJSON() {
 
   // Run the test
   testFilterGeoJSON();
-  testencodeGeoJSONPrediction();

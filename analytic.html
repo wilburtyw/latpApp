@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>ANALYSIS</title>
+        <title>Analytic</title>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
         <link rel="stylesheet" href="/css/dashboard.css" />
         <!-- ICON -->
         <script src="https://kit.fontawesome.com/84295c7e37.js" crossorigin="anonymous"></script>
-        <script type="module" src="/map.js"></script>
+        <script type="module" src="/analyticMap.js"></script>
     </head>
     <body>
         <div class="header">
@@ -33,353 +33,341 @@
             <div class="options">
                 <h2>Dashboard</h2>
                 <div class="button-group">
-                    <a href="./analytic" class="button anal">ANALYTIC</a>
+                    <a href="./analytic" class="button anal disabled">ANALYTIC</a>
                     <a href="./prediction" class="button pred">PREDICTION</a>
                 </div>
                 <div class="input zipcode">
                     <h5>Zipcode</h5>
                     <div class="select select--multiple">
                         <select id="multi-select" multiple>
-                        <option>90001</option>
-                        <option>90002</option>
-                        <option>90003</option>
-                        <option>90004</option>
-                        <option>90005</option>
-                        <option>90006</option>
-                        <option>90007</option>
-                        <option>90008</option>
-                        <option>90010</option>
-                        <option>90011</option>
-                        <option>90012</option>
-                        <option>90013</option>
-                        <option>90014</option>
-                        <option>90015</option>
-                        <option>90016</option>
-                        <option>90017</option>
-                        <option>90018</option>
-                        <option>90019</option>
-                        <option>90020</option>
-                        <option>90021</option>
-                        <option>90022</option>
-                        <option>90023</option>
-                        <option>90024</option>
-                        <option>90025</option>
-                        <option>90026</option>
-                        <option>90027</option>
-                        <option>90028</option>
-                        <option>90029</option>
-                        <option>90031</option>
-                        <option>90032</option>
-                        <option>90033</option>
-                        <option>90034</option>
-                        <option>90035</option>
-                        <option>90036</option>
-                        <option>90037</option>
-                        <option>90038</option>
-                        <option>90039</option>
-                        <option>90040</option>
-                        <option>90041</option>
-                        <option>90042</option>
-                        <option>90043</option>
-                        <option>90044</option>
-                        <option>90045</option>
-                        <option>90046</option>
-                        <option>90047</option>
-                        <option>90048</option>
-                        <option>90049</option>
-                        <option>90056</option>
-                        <option>90057</option>
-                        <option>90058</option>
-                        <option>90059</option>
-                        <option>90061</option>
-                        <option>90062</option>
-                        <option>90063</option>
-                        <option>90064</option>
-                        <option>90065</option>
-                        <option>90066</option>
-                        <option>90067</option>
-                        <option>90068</option>
-                        <option>90069</option>
-                        <option>90071</option>
-                        <option>90073</option>
-                        <option>90077</option>
-                        <option>90089</option>
-                        <option>90094</option>
-                        <option>90095</option>
-                        <option>90201</option>
-                        <option>90210</option>
-                        <option>90211</option>
-                        <option>90212</option>
-                        <option>90220</option>
-                        <option>90221</option>
-                        <option>90222</option>
-                        <option>90230</option>
-                        <option>90232</option>
-                        <option>90240</option>
-                        <option>90241</option>
-                        <option>90242</option>
-                        <option>90245</option>
-                        <option>90247</option>
-                        <option>90248</option>
-                        <option>90249</option>
-                        <option>90250</option>
-                        <option>90254</option>
-                        <option>90255</option>
-                        <option>90260</option>
-                        <option>90261</option>
-                        <option>90262</option>
-                        <option>90263</option>
-                        <option>90265</option>
-                        <option>90266</option>
-                        <option>90270</option>
-                        <option>90272</option>
-                        <option>90274</option>
-                        <option>90275</option>
-                        <option>90277</option>
-                        <option>90278</option>
-                        <option>90280</option>
-                        <option>90290</option>
-                        <option>90291</option>
-                        <option>90292</option>
-                        <option>90293</option>
-                        <option>90301</option>
-                        <option>90302</option>
-                        <option>90303</option>
-                        <option>90304</option>
-                        <option>90305</option>
-                        <option>90401</option>
-                        <option>90402</option>
-                        <option>90403</option>
-                        <option>90404</option>
-                        <option>90405</option>
-                        <option>90501</option>
-                        <option>90502</option>
-                        <option>90503</option>
-                        <option>90504</option>
-                        <option>90505</option>
-                        <option>90506</option>
-                        <option>90601</option>
-                        <option>90602</option>
-                        <option>90603</option>
-                        <option>90604</option>
-                        <option>90605</option>
-                        <option>90606</option>
-                        <option>90623</option>
-                        <option>90630</option>
-                        <option>90631</option>
-                        <option>90638</option>
-                        <option>90639</option>
-                        <option>90640</option>
-                        <option>90650</option>
-                        <option>90660</option>
-                        <option>90670</option>
-                        <option>90701</option>
-                        <option>90703</option>
-                        <option>90706</option>
-                        <option>90710</option>
-                        <option>90712</option>
-                        <option>90713</option>
-                        <option>90715</option>
-                        <option>90716</option>
-                        <option>90717</option>
-                        <option>90723</option>
-                        <option>90731</option>
-                        <option>90732</option>
-                        <option>90744</option>
-                        <option>90745</option>
-                        <option>90746</option>
-                        <option>90747</option>
-                        <option>90755</option>
-                        <option>90802</option>
-                        <option>90803</option>
-                        <option>90804</option>
-                        <option>90805</option>
-                        <option>90806</option>
-                        <option>90807</option>
-                        <option>90808</option>
-                        <option>90810</option>
-                        <option>90813</option>
-                        <option>90814</option>
-                        <option>90815</option>
-                        <option>90822</option>
-                        <option>90831</option>
-                        <option>90840</option>
-                        <option>90846</option>
-                        <option>91001</option>
-                        <option>91006</option>
-                        <option>91007</option>
-                        <option>91008</option>
-                        <option>91010</option>
-                        <option>91011</option>
-                        <option>91016</option>
-                        <option>91020</option>
-                        <option>91023</option>
-                        <option>91024</option>
-                        <option>91030</option>
-                        <option>91040</option>
-                        <option>91042</option>
-                        <option>91046</option>
-                        <option>91101</option>
-                        <option>91103</option>
-                        <option>91104</option>
-                        <option>91105</option>
-                        <option>91106</option>
-                        <option>91107</option>
-                        <option>91108</option>
-                        <option>91125</option>
-                        <option>91126</option>
-                        <option>91201</option>
-                        <option>91202</option>
-                        <option>91203</option>
-                        <option>91204</option>
-                        <option>91205</option>
-                        <option>91206</option>
-                        <option>91207</option>
-                        <option>91208</option>
-                        <option>91210</option>
-                        <option>91214</option>
-                        <option>91301</option>
-                        <option>91302</option>
-                        <option>91303</option>
-                        <option>91304</option>
-                        <option>91306</option>
-                        <option>91307</option>
-                        <option>91311</option>
-                        <option>91316</option>
-                        <option>91321</option>
-                        <option>91324</option>
-                        <option>91325</option>
-                        <option>91326</option>
-                        <option>91330</option>
-                        <option>91331</option>
-                        <option>91335</option>
-                        <option>91340</option>
-                        <option>91342</option>
-                        <option>91343</option>
-                        <option>91344</option>
-                        <option>91345</option>
-                        <option>91350</option>
-                        <option>91351</option>
-                        <option>91352</option>
-                        <option>91354</option>
-                        <option>91355</option>
-                        <option>91356</option>
-                        <option>91361</option>
-                        <option>91362</option>
-                        <option>91364</option>
-                        <option>91367</option>
-                        <option>91381</option>
-                        <option>91382</option>
-                        <option>91384</option>
-                        <option>91387</option>
-                        <option>91390</option>
-                        <option>91401</option>
-                        <option>91402</option>
-                        <option>91403</option>
-                        <option>91405</option>
-                        <option>91406</option>
-                        <option>91411</option>
-                        <option>91423</option>
-                        <option>91436</option>
-                        <option>91501</option>
-                        <option>91502</option>
-                        <option>91504</option>
-                        <option>91505</option>
-                        <option>91506</option>
-                        <option>91521</option>
-                        <option>91522</option>
-                        <option>91523</option>
-                        <option>91601</option>
-                        <option>91602</option>
-                        <option>91604</option>
-                        <option>91605</option>
-                        <option>91606</option>
-                        <option>91607</option>
-                        <option>91608</option>
-                        <option>91702</option>
-                        <option>91706</option>
-                        <option>91709</option>
-                        <option>91710</option>
-                        <option>91711</option>
-                        <option>91722</option>
-                        <option>91723</option>
-                        <option>91724</option>
-                        <option>91731</option>
-                        <option>91732</option>
-                        <option>91733</option>
-                        <option>91740</option>
-                        <option>91741</option>
-                        <option>91744</option>
-                        <option>91745</option>
-                        <option>91746</option>
-                        <option>91748</option>
-                        <option>91750</option>
-                        <option>91754</option>
-                        <option>91755</option>
-                        <option>91759</option>
-                        <option>91765</option>
-                        <option>91766</option>
-                        <option>91767</option>
-                        <option>91768</option>
-                        <option>91770</option>
-                        <option>91773</option>
-                        <option>91775</option>
-                        <option>91776</option>
-                        <option>91780</option>
-                        <option>91789</option>
-                        <option>91790</option>
-                        <option>91791</option>
-                        <option>91792</option>
-                        <option>91801</option>
-                        <option>91803</option>
-                        <option>92397</option>
-                        <option>92821</option>
-                        <option>92823</option>
-                        <option>93243</option>
-                        <option>93510</option>
-                        <option>93523</option>
-                        <option>93532</option>
-                        <option>93534</option>
-                        <option>93535</option>
-                        <option>93536</option>
-                        <option>93543</option>
-                        <option>93544</option>
-                        <option>93550</option>
-                        <option>93551</option>
-                        <option>93552</option>
-                        <option>93553</option>
-                        <option>93563</option>
-                        <option>93591</option>
-                        <option>90704</option>
+                            <option value="90001">90001</option>
+                            <option value="90002">90002</option>
+                            <option value="90003">90003</option>
+                            <option value="90004">90004</option>
+                            <option value="90005">90005</option>
+                            <option value="90006">90006</option>
+                            <option value="90007">90007</option>
+                            <option value="90008">90008</option>
+                            <option value="90010">90010</option>
+                            <option value="90011">90011</option>
+                            <option value="90012">90012</option>
+                            <option value="90013">90013</option>
+                            <option value="90014">90014</option>
+                            <option value="90015">90015</option>
+                            <option value="90016">90016</option>
+                            <option value="90017">90017</option>
+                            <option value="90018">90018</option>
+                            <option value="90019">90019</option>
+                            <option value="90020">90020</option>
+                            <option value="90021">90021</option>
+                            <option value="90022">90022</option>
+                            <option value="90023">90023</option>
+                            <option value="90024">90024</option>
+                            <option value="90025">90025</option>
+                            <option value="90026">90026</option>
+                            <option value="90027">90027</option>
+                            <option value="90028">90028</option>
+                            <option value="90029">90029</option>
+                            <option value="90031">90031</option>
+                            <option value="90032">90032</option>
+                            <option value="90033">90033</option>
+                            <option value="90034">90034</option>
+                            <option value="90035">90035</option>
+                            <option value="90036">90036</option>
+                            <option value="90037">90037</option>
+                            <option value="90038">90038</option>
+                            <option value="90039">90039</option>
+                            <option value="90040">90040</option>
+                            <option value="90041">90041</option>
+                            <option value="90042">90042</option>
+                            <option value="90043">90043</option>
+                            <option value="90044">90044</option>
+                            <option value="90045">90045</option>
+                            <option value="90046">90046</option>
+                            <option value="90047">90047</option>
+                            <option value="90048">90048</option>
+                            <option value="90049">90049</option>
+                            <option value="90056">90056</option>
+                            <option value="90057">90057</option>
+                            <option value="90058">90058</option>
+                            <option value="90059">90059</option>
+                            <option value="90061">90061</option>
+                            <option value="90062">90062</option>
+                            <option value="90063">90063</option>
+                            <option value="90064">90064</option>
+                            <option value="90065">90065</option>
+                            <option value="90066">90066</option>
+                            <option value="90067">90067</option>
+                            <option value="90068">90068</option>
+                            <option value="90069">90069</option>
+                            <option value="90071">90071</option>
+                            <option value="90073">90073</option>
+                            <option value="90077">90077</option>
+                            <option value="90089">90089</option>
+                            <option value="90094">90094</option>
+                            <option value="90095">90095</option>
+                            <option value="90201">90201</option>
+                            <option value="90210">90210</option>
+                            <option value="90211">90211</option>
+                            <option value="90212">90212</option>
+                            <option value="90220">90220</option>
+                            <option value="90221">90221</option>
+                            <option value="90222">90222</option>
+                            <option value="90230">90230</option>
+                            <option value="90232">90232</option>
+                            <option value="90240">90240</option>
+                            <option value="90241">90241</option>
+                            <option value="90242">90242</option>
+                            <option value="90245">90245</option>
+                            <option value="90247">90247</option>
+                            <option value="90248">90248</option>
+                            <option value="90249">90249</option>
+                            <option value="90250">90250</option>
+                            <option value="90254">90254</option>
+                            <option value="90255">90255</option>
+                            <option value="90260">90260</option>
+                            <option value="90261">90261</option>
+                            <option value="90262">90262</option>
+                            <option value="90263">90263</option>
+                            <option value="90265">90265</option>
+                            <option value="90266">90266</option>
+                            <option value="90270">90270</option>
+                            <option value="90272">90272</option>
+                            <option value="90274">90274</option>
+                            <option value="90275">90275</option>
+                            <option value="90277">90277</option>
+                            <option value="90278">90278</option>
+                            <option value="90280">90280</option>
+                            <option value="90290">90290</option>
+                            <option value="90291">90291</option>
+                            <option value="90292">90292</option>
+                            <option value="90293">90293</option>
+                            <option value="90301">90301</option>
+                            <option value="90302">90302</option>
+                            <option value="90303">90303</option>
+                            <option value="90304">90304</option>
+                            <option value="90305">90305</option>
+                            <option value="90401">90401</option>
+                            <option value="90402">90402</option>
+                            <option value="90403">90403</option>
+                            <option value="90404">90404</option>
+                            <option value="90405">90405</option>
+                            <option value="90501">90501</option>
+                            <option value="90502">90502</option>
+                            <option value="90503">90503</option>
+                            <option value="90504">90504</option>
+                            <option value="90505">90505</option>
+                            <option value="90506">90506</option>
+                            <option value="90601">90601</option>
+                            <option value="90602">90602</option>
+                            <option value="90603">90603</option>
+                            <option value="90604">90604</option>
+                            <option value="90605">90605</option>
+                            <option value="90606">90606</option>
+                            <option value="90623">90623</option>
+                            <option value="90630">90630</option>
+                            <option value="90631">90631</option>
+                            <option value="90638">90638</option>
+                            <option value="90639">90639</option>
+                            <option value="90640">90640</option>
+                            <option value="90650">90650</option>
+                            <option value="90660">90660</option>
+                            <option value="90670">90670</option>
+                            <option value="90701">90701</option>
+                            <option value="90703">90703</option>
+                            <option value="90706">90706</option>
+                            <option value="90710">90710</option>
+                            <option value="90712">90712</option>
+                            <option value="90713">90713</option>
+                            <option value="90715">90715</option>
+                            <option value="90716">90716</option>
+                            <option value="90717">90717</option>
+                            <option value="90723">90723</option>
+                            <option value="90731">90731</option>
+                            <option value="90732">90732</option>
+                            <option value="90744">90744</option>
+                            <option value="90745">90745</option>
+                            <option value="90746">90746</option>
+                            <option value="90747">90747</option>
+                            <option value="90755">90755</option>
+                            <option value="90802">90802</option>
+                            <option value="90803">90803</option>
+                            <option value="90804">90804</option>
+                            <option value="90805">90805</option>
+                            <option value="90806">90806</option>
+                            <option value="90807">90807</option>
+                            <option value="90808">90808</option>
+                            <option value="90810">90810</option>
+                            <option value="90813">90813</option>
+                            <option value="90814">90814</option>
+                            <option value="90815">90815</option>
+                            <option value="90822">90822</option>
+                            <option value="90831">90831</option>
+                            <option value="90840">90840</option>
+                            <option value="90846">90846</option>
+                            <option value="91001">91001</option>
+                            <option value="91006">91006</option>
+                            <option value="91007">91007</option>
+                            <option value="91008">91008</option>
+                            <option value="91010">91010</option>
+                            <option value="91011">91011</option>
+                            <option value="91016">91016</option>
+                            <option value="91020">91020</option>
+                            <option value="91023">91023</option>
+                            <option value="91024">91024</option>
+                            <option value="91030">91030</option>
+                            <option value="91040">91040</option>
+                            <option value="91042">91042</option>
+                            <option value="91046">91046</option>
+                            <option value="91101">91101</option>
+                            <option value="91103">91103</option>
+                            <option value="91104">91104</option>
+                            <option value="91105">91105</option>
+                            <option value="91106">91106</option>
+                            <option value="91107">91107</option>
+                            <option value="91108">91108</option>
+                            <option value="91125">91125</option>
+                            <option value="91126">91126</option>
+                            <option value="91201">91201</option>
+                            <option value="91202">91202</option>
+                            <option value="91203">91203</option>
+                            <option value="91204">91204</option>
+                            <option value="91205">91205</option>
+                            <option value="91206">91206</option>
+                            <option value="91207">91207</option>
+                            <option value="91208">91208</option>
+                            <option value="91210">91210</option>
+                            <option value="91214">91214</option>
+                            <option value="91301">91301</option>
+                            <option value="91302">91302</option>
+                            <option value="91303">91303</option>
+                            <option value="91304">91304</option>
+                            <option value="91306">91306</option>
+                            <option value="91307">91307</option>
+                            <option value="91311">91311</option>
+                            <option value="91316">91316</option>
+                            <option value="91321">91321</option>
+                            <option value="91324">91324</option>
+                            <option value="91325">91325</option>
+                            <option value="91326">91326</option>
+                            <option value="91330">91330</option>
+                            <option value="91331">91331</option>
+                            <option value="91335">91335</option>
+                            <option value="91340">91340</option>
+                            <option value="91342">91342</option>
+                            <option value="91343">91343</option>
+                            <option value="91344">91344</option>
+                            <option value="91345">91345</option>
+                            <option value="91350">91350</option>
+                            <option value="91351">91351</option>
+                            <option value="91352">91352</option>
+                            <option value="91354">91354</option>
+                            <option value="91355">91355</option>
+                            <option value="91356">91356</option>
+                            <option value="91361">91361</option>
+                            <option value="91362">91362</option>
+                            <option value="91364">91364</option>
+                            <option value="91367">91367</option>
+                            <option value="91381">91381</option>
+                            <option value="91382">91382</option>
+                            <option value="91384">91384</option>
+                            <option value="91387">91387</option>
+                            <option value="91390">91390</option>
+                            <option value="91401">91401</option>
+                            <option value="91402">91402</option>
+                            <option value="91403">91403</option>
+                            <option value="91405">91405</option>
+                            <option value="91406">91406</option>
+                            <option value="91411">91411</option>
+                            <option value="91423">91423</option>
+                            <option value="91436">91436</option>
+                            <option value="91501">91501</option>
+                            <option value="91502">91502</option>
+                            <option value="91504">91504</option>
+                            <option value="91505">91505</option>
+                            <option value="91506">91506</option>
+                            <option value="91521">91521</option>
+                            <option value="91522">91522</option>
+                            <option value="91523">91523</option>
+                            <option value="91601">91601</option>
+                            <option value="91602">91602</option>
+                            <option value="91604">91604</option>
+                            <option value="91605">91605</option>
+                            <option value="91606">91606</option>
+                            <option value="91607">91607</option>
+                            <option value="91608">91608</option>
+                            <option value="91702">91702</option>
+                            <option value="91706">91706</option>
+                            <option value="91709">91709</option>
+                            <option value="91710">91710</option>
+                            <option value="91711">91711</option>
+                            <option value="91722">91722</option>
+                            <option value="91723">91723</option>
+                            <option value="91724">91724</option>
+                            <option value="91731">91731</option>
+                            <option value="91732">91732</option>
+                            <option value="91733">91733</option>
+                            <option value="91740">91740</option>
+                            <option value="91741">91741</option>
+                            <option value="91744">91744</option>
+                            <option value="91745">91745</option>
+                            <option value="91746">91746</option>
+                            <option value="91748">91748</option>
+                            <option value="91750">91750</option>
+                            <option value="91754">91754</option>
+                            <option value="91755">91755</option>
+                            <option value="91759">91759</option>
+                            <option value="91765">91765</option>
+                            <option value="91766">91766</option>
+                            <option value="91767">91767</option>
+                            <option value="91768">91768</option>
+                            <option value="91770">91770</option>
+                            <option value="91773">91773</option>
+                            <option value="91775">91775</option>
+                            <option value="91776">91776</option>
+                            <option value="91780">91780</option>
+                            <option value="91789">91789</option>
+                            <option value="91790">91790</option>
+                            <option value="91791">91791</option>
+                            <option value="91792">91792</option>
+                            <option value="91801">91801</option>
+                            <option value="91803">91803</option>
+                            <option value="92397">92397</option>
+                            <option value="92821">92821</option>
+                            <option value="92823">92823</option>
+                            <option value="93243">93243</option>
+                            <option value="93510">93510</option>
+                            <option value="93523">93523</option>
+                            <option value="93532">93532</option>
+                            <option value="93534">93534</option>
+                            <option value="93535">93535</option>
+                            <option value="93536">93536</option>
+                            <option value="93543">93543</option>
+                            <option value="93544">93544</option>
+                            <option value="93550">93550</option>
+                            <option value="93551">93551</option>
+                            <option value="93552">93552</option>
+                            <option value="93553">93553</option>
+                            <option value="93563">93563</option>
+                            <option value="93591">93591</option>
+                            <option value="90704">90704</option>
                         </select>
-                    </div>
-                    <div class="zipcodelevel">
-                        <p>Display in zipcode level</p>
-                        <input type="checkbox" checked>
                     </div>
                 </div>
                 <div class="input year">
                     <h5>Year</h5>
                     <!-- Slide bar -->
                     <div class="slider">
-                        <input type="range" min="2010" max="2022" value="2018" oninput="rangeValue.innerText = this.value">
-                        <p id="rangeValue">2018</p>
+                        <input id="year-option" type="range" min="2010" max="2022" value="2020" oninput="rangeValue.innerText = this.value">
+                        <p id="rangeValue">2020</p>
                     </div>
                 </div>
                 <div class="input styling">
                     <h5>Styling Options</h5>
                     <p>Zooming</p>
                     <div class="slider">
-                        <input id="zoom-options" type="range" min="0" max="4" value="0" oninput="zoValue.innerText = 'Lvl'+this.value">
+                        <input id="zoom-option" type="range" min="0" max="4" value="0" oninput="zoValue.innerText = 'Lvl'+this.value">
                         <p id="zoValue">Lvl0</p>
-                    </div>
-                    <p>Type</p>
-                    <div class="select">
-                        <select>
-                            <option>Heat</option>
-                            <option>Bubble</option>
-                            <option>Chropleth</option>
-                        </select>
                     </div>
                     <p>Color Palette</p>
                     <div class="select">
@@ -391,8 +379,8 @@
                     </div>
                     <p>Opacity</p>
                     <div class="slider">
-                        <input type="range" min="0" max="100" value="20" step="10" oninput="opValue.innerText = this.value+'%'">
-                        <p id="opValue">20%</p>
+                        <input id="opacity-option" type="range" min="0" max="100" value="80" step="10" oninput="opValue.innerText = this.value+'%'">
+                        <p id="opValue">80%</p>
                     </div>
                 </div>
                 <div class="bottom-button">
@@ -401,6 +389,16 @@
                 </div>
             </div>
             <div id="map"></div>
+            <div class="info anal">
+                <h1>Risk Level</h1>
+                <div class="label-description">
+                    <p>N/A - No history accident reported</p>
+                    <p>Level 0 - Low Risk, frequency < 10</p>
+                    <p>Level 1 - Medium Risk, 10 < frequency < 20</p>
+                    <p>Level 2 - High Risk, frequency > 20</p>
+                </div>
+                <div id="selected-zipcodes-info"></div>
+            </div>
         </div>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBI7pYqgGSfj5J04cPZJmp_l0aigZpPArQ&callback=initMap&v=weekly" defer></script>
     </body>
