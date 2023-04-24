@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans+Semi+Expanded:wght@300;600&family=Hanuman:wght@300&display=swap');
+
+.insight {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: auto;
+    font-family: 'Encode Sans Semi Expanded', sans-serif;
+    padding-top: 5em;
+    padding-left: 7em;
+    padding-right: 7em;
+}
+
+.insight-block {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+    align-items: center;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 5px 0;
+}
+
+.plot {
+    width: 50%;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Insight</title>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+        <link rel="stylesheet" href="/css/dashboard.css" />
+        <link rel="stylesheet" href="/css/insight.css" />
+        <!-- ICON -->
+        <script src="https://kit.fontawesome.com/84295c7e37.js" crossorigin="anonymous"></script>
+        <script type="module" src="/predictionMap.js"></script>
+    </head>
+    <body>
+        <div class="header">
+            <div class="brand">
+                <div class="logo"></div>
+                    <a href="/">
+                        <img src="./assets/logo.png">
+                    </a>
+                <div class="title">
+                    <p>Los Angeles</p>
+                    <p>Traffic Platform</p>
+                </div>
+            </div>
+            <div class="navbar">
+                <div class="navitems">
+                    <a class="navitem" href="/analytic">Analytic</a>
+                    <a class="navitem" href="/prediction">Prediction</a>
+                    <a class="navitem" href="/insight">Insight</a>
+                    <button class="btn"><i class="fa-solid fa-user"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="insight">
+            <h1>Insight - All you need to know about Los Angeles Traffic</h1>
+
+            <p>Analyzing the accident frequency and risk level data for various zipcodes.</p>
+
+            <p>Information about accident frequency in different zip codes and Prediction about the risk level associated with each zip code.</p>
+        
+            <div class="insight-block">
+                <div class="text">
+                    <h2>Yearly Trend Analysis</h2>
+                    <p>Yearly trend of accident frequency across all zip codes. Identifying any patterns or trends in the data over time.</p>
+                    <p>Total accident frequency has been decreasing over time. However, there are some fluctuations in the data from year to year.</p>
+                </div>
+                <img class="plot" src="/assets/plot1.png" alt="Yearly Trend Analysis">
+            </div>
+            <div class="insight-block">
+                <img class="plot" src="/assets/plot2.png" alt="Statistical Distribution Analysis">
+                <div class="text">
+                    <h2>Statistical Distribution Analysis</h2>
+                    <p>Calculation of the mean, median, mode, and standard deviation of the accident frequency for each zip code. Understanding the distribution of accident frequency in each area.</p>
+                    <p>The distribution of accident frequency varies widely across different areas. Some areas have a low mean, median, and mode, while others have a high mean, median, and mode. The standard deviation also varies widely across different areas, indicating that some areas have a more spread-out distribution of accident frequency than others.</p>
+                </div>
+                </div>
+            <div class="insight-block">
+                <div class="text">
+                    <h2>Statistical Relationship Analysis</h2>
+                    <p>Analysis of the relationship between risk level and accident frequency by plotting a scatter chart. Understanding how the risk level affects accident frequency.</p>
+                    <p>The scatter plot of risk level versus accident frequency shows a weak positive correlation between the two variables. This means that as the risk level increases, the accident frequency tends to increase as well, but the relationship is not very strong.</p>
+                </div>
+                <img class="plot" src="/assets/plot3.png" alt="Statistical Relationship Analysis">
+            </div>
+
+        </div>        
+    </body>
+</html>

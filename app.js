@@ -12,6 +12,11 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'))
 })
 
+app.get('/insight', (req, res) => {
+    res.sendFile(path.join(__dirname, "insight.html"))
+  })
+  
+
 app.get('/analytic', (req, res) => {
   res.sendFile(path.join(__dirname, "analytic.html"))
 })
