@@ -36,8 +36,6 @@ To access these features, navigate to the respective pages by clicking on the na
 
 This project was created by [wilburtyw](https://github.com/wilburtyw) and is licensed under the [MIT License](https://opensource.org/licenses/MIT). 
 
-The app uses the [Font Awesome](https://fontawesome.com/) icon library and [Wave.css](https://github.com/andreruffert/wave) for the background waves.
-
 ## Acknowledgements
 
 Special thanks to the open data providers and contributors who make this app possible. 
